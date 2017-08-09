@@ -31,7 +31,7 @@
 		 *
 		 */
 		function initialize() {
-			sensitivity = 20;
+			sensitivity = 100;
 
 			if(!temp1Canvas) {
 				temp1Canvas = document.createElement('canvas');
