@@ -5,12 +5,14 @@
 		<link rel="stylesheet" type="text/css" href="styles/main.css" media="all">
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="icon" href="icon.jpg">
 
 		<!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="styles/bootstrap-slider.min.css" media="all">
 		<script src="js/bootstrap-slider.min.js"></script>
 
@@ -29,14 +31,15 @@
 
 		<div class="jumbotron jumbotron-fluid" id="top">
 		  <div class="container">
-		    <h1 class="display-3">Stay Awake!</h1>
-		    <p class="lead">This web app is designed to keep you awake when you have to! Using motion detection technology, you will be alerted if you start dozing off for an extended period of time while using your computer.</p>
-		  </div>
+		    <h1 id="header-title" class="display-3">Stay Awake!</h1>
+		    <p class="lead">This web tool is designed to keep you awake when you have to! Using motion detection technology, you will be alerted if you start dozing off for an extended period of time while using your computer.</p>
+				<p class="lead">All you need to get started is a computer with a webcam! The alarm will reset every time movement is detected. For best performance, make sure the space behind you is clear of anything that may trigger the motion sensor!</p>
+			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-xs-6" style="padding-left:300px;">
-				<h4>1. Select how much time you'd want to spend motionless before the alarm rings.</h4>
+				<h4>1. Select how long after no movement is detected you'd like to be woken up.</h4>
 				<br>
 				<h4>2. Select an alarm sound.</h4>
 				<br>
@@ -44,6 +47,8 @@
 			</div>
 			<div class="col-xs-6" style="padding-top:12px;">
 				<div class="btn-group">
+					<button type="button" id="15sec" class="btn btn-primary">15 sec</button>
+					<button type="button" id="30sec" class="btn btn-primary">30 sec</button>
 				  <button type="button" id="1min" class="btn btn-primary">1 min</button>
 				  <button type="button" id="2min" class="btn btn-primary">2 min</button>
 				  <button type="button" id="5min" class="btn btn-primary">5 min</button>
@@ -86,9 +91,21 @@
 				<input id="slider" data-slider-id='data-slider' onchange="changeSensitivity(this.value)" type="text" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="7"/>
 			</div>
 			<div class="text-center">
-				<p>Move the slider above to change the sensitivity!<p>
+				<p>Move the slider above to change the sensitivity! You can refer to the log to help you adjust &rarr;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary" id="log-show" onclick="showLog();">Show Log</button><p>
 			</div>
 		</div>
+
+		<div class="col-md-8 col-md-offset-2 text-block" id="log">
+			<div class=container style=float:left>
+				<div id="movement-log" class=text-div>
+
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<br>
+
 		<script type="text/javascript" src="js/global.js"></script>
 		<script type="text/javascript" src="js/MotionDetector/WebCamCapture.js"></script>
 		<script type="text/javascript" src="js/MotionDetector/ImageCompare.js"></script>

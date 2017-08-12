@@ -18,14 +18,37 @@
 
  var delay;
 
+ var logDisplayed = false;
+
  $(".btn-group > button.btn").on("click", function(){
      resetDelay();
-     delay = this.innerHTML.split(" min")[0] * 60 * 1000;
+
+     if (this.innerHTML.includes("min")) {
+       delay = this.innerHTML.split(" min")[0] * 60 * 1000;
+     } else {
+       delay = this.innerHTML.split(" sec")[0] * 1000;
+     }
      // for debugging:
      //delay = 4000;
      this.style.color = "red";
  });
 
+ window.setInterval(function() {
+   var elem = document.getElementById('log');
+   elem.scrollTop = elem.scrollHeight;
+ }, 1000);
+
+function showLog() {
+  if (!logDisplayed) {
+    logDisplayed = true;
+    $("#log").fadeIn(400);
+    document.getElementById("log-show").innerHTML = "Hide Log"
+  } else {
+    logDisplayed = false;
+    $("#log").fadeOut(400);
+    document.getElementById("log-show").innerHTML = "Show Log"
+  }
+}
 
 
  function resetAlarm() {
@@ -35,6 +58,8 @@
  }
 
  function resetDelay() {
+   document.getElementById("15sec").style.color = "white";
+   document.getElementById("30sec").style.color = "white";
    document.getElementById("1min").style.color = "white";
    document.getElementById("2min").style.color = "white";
    document.getElementById("5min").style.color = "white";
@@ -144,11 +169,13 @@
       console.log("sensitivity: " + sensitivity);
       console.log("delay: " + delay)
 			if (cur !== prev) {
+        $("#movement-log").append("<p class=text>" + new Date() + " - Movement Detected</p>")
 				console.log("He's awake")
         time = +new Date();
 				noMovementCount = 0;
 			} else {
         console.log(curTime - time)
+        $("#movement-log").append("<p class=text>" + new Date() + " - Dormant</p>");
         if (curTime - time > delay) {
           document.getElementById(sound).muted = false;
           $("#flash-button").slideDown();
@@ -203,6 +230,8 @@
         alert("You must select a time and alarm sound!")
         return;
       }
+
+      document.getElementById("header-title").innerHTML = "Alarm is turned on!"
 			$("#webCamWindow").slideDown(1000);
       $("#slider-div").fadeIn();
 			// document.getElementById("stream").style.visibility = "visible";
