@@ -1,7 +1,10 @@
-# Motion detection in Javascript
+# Stay Awake!
 
-This is a small example of detecting movement with a webcam in javascript. The core concept is comparing frames to each other and detect differences based on a predetermined sensitivity.
+This web app is designed to help you pull all-nighters 
 
-For more information read this blog post: [benjaminhorn.io]
 
-[benjaminhorn.io]:http://benjaminhorn.io/code/motion-detection-with-javascript-and-a-web-camera/
+Credits to the motion detection work go to Benjamin Horn (beije). 
+Read more about his work here: [benjaminhorn.io]:http://benjaminhorn.io/code/motion-detection-with-javascript-and-a-web-camera/
+
+
+
