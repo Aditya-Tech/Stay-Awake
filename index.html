@@ -13,15 +13,16 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<audio id="analog-sound" muted loop autoplay>
+		<audio id="Analog" muted loop autoplay>
 		  <source src="analog.mp3" type="audio/mpeg">
 		</audio>
-		<audio id="rooster-sound" muted loop autoplay>
-		  <source src="rooster.mp3" type="audio/mpeg">
-		</audio>
-		<audio id="ship-sound" muted loop autoplay>
+		<audio id="Ship" muted loop autoplay>
 		  <source src="ship.mp3" type="audio/mpeg">
 		</audio>
+		<audio id="Rooster" muted loop autoplay>
+		  <source src="rooster.mp3" type="audio/mpeg">
+		</audio>
+
 
 		<div class="jumbotron jumbotron-fluid" id="top">
 		  <div class="container">
@@ -33,8 +34,10 @@
 		<div class="row">
 			<div class="col-xs-6" style="padding-left:300px;">
 				<h4>1. Select how much time you'd want to spend motionless before the alarm rings.</h4>
-				<h4>3. Select an alarm to play
-				<h4>2. Click 'Start' and work on!</h4>
+				<br>
+				<h4>2. Select an alarm sound.</h4>
+				<br>
+				<h4>3. Click 'Start' and get to work!</h4>
 			</div>
 			<div class="col-xs-6" style="padding-top:12px;">
 				<div class="btn-group">
@@ -45,15 +48,25 @@
 					<button type="button" id="15min" class="btn btn-primary">15 min</button>
 					<button type="button" id="30min" class="btn btn-primary">30 min</button>
 				</div>
+				<div class="dropdown" style="padding-top:32px;">
+				  <button id="sound-dropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select a sound!
+				  <span class="caret"></span></button>
+				  <ul class="dropdown-menu">
+				    <li><a onclick="selectAudio(this)">Analog</a></li>
+				    <li><a onclick="selectAudio(this)">Ship</a></li>
+				    <li><a onclick="selectAudio(this)">Rooster</a></li>
+				  </ul>
+				</div>
 			</div>
-			<div class="col-xs-6 pull-right" style="padding-top:20px;">
+
+			<div class="col-xs-6 pull-right" style="padding-top:22px;">
 				<div>
 					<button id="start" class="btn-primary-outline" onclick="start()"><b>Start!</b></button>
 				</div>
 			</div>
 		</div>
 
-
+		<br>
 		<div id="stream" class="container">
 			<div class="col-md-12 text-center">
 

@@ -11,6 +11,39 @@
 
  var start;
  var started;
+ var sound;
+
+ var time = +new Date();
+ var curTime;
+
+ var delay;
+
+ $(".btn-group > button.btn").on("click", function(){
+     resetDelay();
+     delay = 10000;
+     this.style.color = "red";
+ });
+
+ function resetDelay() {
+   document.getElementById("1min").style.color = "white";
+   document.getElementById("2min").style.color = "white";
+   document.getElementById("5min").style.color = "white";
+   document.getElementById("10min").style.color = "white";
+   document.getElementById("15min").style.color = "white";
+   document.getElementById("30min").style.color = "white";
+ }
+
+ function selectAudio(cur) {
+   muteAll();
+   sound = cur.innerHTML;
+   document.getElementById("sound-dropdown").innerHTML = cur.innerHTML;
+ }
+
+ function muteAll() {
+   document.getElementById("Analog").muted = true;
+   document.getElementById("Ship").muted = true;
+   document.getElementById("Rooster").muted = true;
+ }
 
 ;(function(App) {
 
@@ -96,10 +129,18 @@
 
 
 			cur = (bottomRight[0] - topLeft[0]) * (bottomRight[1] - topLeft[1]);
+
+      curTime = +new Date();
+
 			if (cur !== prev) {
 				console.log("He's awake")
+        time = +new Date();
 				noMovementCount = 0;
 			} else {
+        console.log(curTime - time)
+        if (curTime - time > delay) {
+          document.getElementById("Analog").muted = false;
+        }
 				console.log("Asleep")
 				noMovementCount++;
 			}
@@ -135,11 +176,21 @@
 			}
 		}
 
-    function playSound(filename){
-        document.getElementById("sound").innerHTML='<audio autoplay="autoplay"><source src="' + filename + '.mp3" type="audio/mpeg" /><source src="' + filename + '.ogg" type="audio/ogg" /><embed hidden="true" autostart="true" loop="false" src="' + filename +'.mp3" /></audio>';
-            }
+    // function playSound(filename){
+    //     document.getElementById("sound").innerHTML='<audio autoplay="autoplay"><source src="' + filename + '.mp3" type="audio/mpeg" /><source src="' + filename + '.ogg" type="audio/ogg" /><embed hidden="true" autostart="true" loop="false" src="' + filename +'.mp3" /></audio>';
+    //         }
 		start = function() {
 
+      if (!delay && sound) {
+        alert("You must select a time!");
+        return;
+      } else if (!sound && delay) {
+        alert("You must select an alarm sound!")
+        return;
+      } else if (!sound && !delay) {
+        alert("You must select a time and alarm sound!")
+        return;
+      }
 			$("#webCamWindow").slideDown(1000);
 			// document.getElementById("stream").style.visibility = "visible";
 			// document.getElementById("stream").style.display = "inline";
