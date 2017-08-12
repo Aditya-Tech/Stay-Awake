@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Webcam motion detection</title>
+		<title>Stay Awake!</title>
 		<link rel="stylesheet" type="text/css" href="styles/main.css" media="all">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<video id="webCamWindow" autoplay></video>
-		<div id="movement"></div>
-		<p>test 4</p>
+
+		<div class="jumbotron jumbotron-fluid" id="top">
+		  <div class="container">
+		    <h1 class="display-3">Stay Awake!</h1>
+		    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		  </div>
+		</div>
+		<div class="container">
+			<div class="col-md-12 text-center">
+				<video id="webCamWindow" autoplay></video>
+				<div id="movement"></div>
+			</div>
+		</div>
+
+		<div class="row">
+
+
+		</div>
+		<div class="text-center">
+			<div class="btn-group">
+			  <button type="button" id="1min" class="btn btn-primary">1 min</button>
+			  <button type="button" id="2min" class="btn btn-primary">2 min</button>
+			  <button type="button" id="5min" class="btn btn-primary">5 min</button>
+				<button type="button" id="10min" class="btn btn-primary">10 min</button>
+				<button type="button" id="15min" class="btn btn-primary">15 min</button>
+				<button type="button" id="30min" class="btn btn-primary">30 min</button>
+			</div>
+		</div>
+		<div id="slider-div" class="text-center">
+			<input type="range" id="slider" min="50" max="150" value="50" step="10" onchange="changeSensitivity(this.value)" />
+			<p id="sensitivity">50</p>
+		</div>
+
 		<script type="text/javascript" src="js/global.js"></script>
 		<script type="text/javascript" src="js/MotionDetector/WebCamCapture.js"></script>
 		<script type="text/javascript" src="js/MotionDetector/ImageCompare.js"></script>
