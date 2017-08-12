@@ -9,6 +9,15 @@
  *
  */
 
+ var sensitivity;
+
+ $('#slider').slider({
+ 	formatter: function(value) {
+		sensitivity = 161.11111 - (11 * value);
+ 		return 'Current value: ' + value;
+ 	}
+ });
+
 ;(function(App) {
 
 	"use strict";
@@ -21,7 +30,7 @@
 	 *
 	 */
 	App.ImageCompare = function() {
-		var sensitivity, temp1Canvas, temp1Context, temp2Canvas, temp2Context, topLeft, bottomRight;
+		var temp1Canvas, temp1Context, temp2Canvas, temp2Context, topLeft, bottomRight;
 
 		/*
 		 * Initializes the object.
@@ -31,7 +40,7 @@
 		 *
 		 */
 		function initialize() {
-			sensitivity = document.getElementById("sensitivity").innerHTML;
+			// sensitivity = document.getElementById("slider").data-slider-value;
 
 			if(!temp1Canvas) {
 				temp1Canvas = document.createElement('canvas');

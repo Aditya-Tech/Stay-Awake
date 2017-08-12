@@ -20,9 +20,19 @@
 
  $(".btn-group > button.btn").on("click", function(){
      resetDelay();
-     delay = 10000;
+     delay = this.innerHTML.split(" min")[0] * 60 * 1000;
+     // for debugging:
+     //delay = 4000;
      this.style.color = "red";
  });
+
+
+
+ function resetAlarm() {
+   muteAll();
+   $("#flash-button").slideUp();
+   time = +new Date();
+ }
 
  function resetDelay() {
    document.getElementById("1min").style.color = "white";
@@ -131,7 +141,8 @@
 			cur = (bottomRight[0] - topLeft[0]) * (bottomRight[1] - topLeft[1]);
 
       curTime = +new Date();
-
+      console.log("sensitivity: " + sensitivity);
+      console.log("delay: " + delay)
 			if (cur !== prev) {
 				console.log("He's awake")
         time = +new Date();
@@ -139,7 +150,8 @@
 			} else {
         console.log(curTime - time)
         if (curTime - time > delay) {
-          document.getElementById("Analog").muted = false;
+          document.getElementById(sound).muted = false;
+          $("#flash-button").slideDown();
         }
 				console.log("Asleep")
 				noMovementCount++;
@@ -192,6 +204,7 @@
         return;
       }
 			$("#webCamWindow").slideDown(1000);
+      $("#slider-div").fadeIn();
 			// document.getElementById("stream").style.visibility = "visible";
 			// document.getElementById("stream").style.display = "inline";
 			initialize();

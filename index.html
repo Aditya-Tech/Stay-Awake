@@ -11,6 +11,9 @@
 
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles/bootstrap-slider.min.css" media="all">
+		<script src="js/bootstrap-slider.min.js"></script>
+
 	</head>
 	<body>
 		<audio id="Analog" muted loop autoplay>
@@ -58,14 +61,12 @@
 				  </ul>
 				</div>
 			</div>
-
 			<div class="col-xs-6 pull-right" style="padding-top:22px;">
 				<div>
-					<button id="start" class="btn-primary-outline" onclick="start()"><b>Start!</b></button>
+					<button id="start" class="btn-primary-outline" onclick="start()"><b>Start</b></button>
 				</div>
 			</div>
 		</div>
-
 		<br>
 		<div id="stream" class="container">
 			<div class="col-md-12 text-center">
@@ -73,14 +74,21 @@
 				<video id="webCamWindow" autoplay></video>
 				<div id="movement"></div>
 			</div>
+			<br>
+			<div class="col-md-12 text-center">
+				<button type="button" id="flash-button" onclick="resetAlarm();">Reset Alarm</button>
+			</div>
 		</div>
-
-
-		<div id="slider-div" class="text-center">
-			<input type="range" id="slider" min="50" max="150" value="50" step="10" onchange="changeSensitivity(this.value)" />
-			<p id="sensitivity">50</p>
+		<br>
+		<div id="slider-div">
+			<div class="text-center">
+				<!-- <input type="range" id="slider" min="50" max="150" value="50" step="10" onchange="changeSensitivity(this.value)" /> -->
+				<input id="slider" data-slider-id='data-slider' onchange="changeSensitivity(this.value)" type="text" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="7"/>
+			</div>
+			<div class="text-center">
+				<p>Move the slider above to change the sensitivity!<p>
+			</div>
 		</div>
-
 		<script type="text/javascript" src="js/global.js"></script>
 		<script type="text/javascript" src="js/MotionDetector/WebCamCapture.js"></script>
 		<script type="text/javascript" src="js/MotionDetector/ImageCompare.js"></script>
