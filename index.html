@@ -13,16 +13,46 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
+		<audio id="analog-sound" muted loop autoplay>
+		  <source src="analog.mp3" type="audio/mpeg">
+		</audio>
+		<audio id="rooster-sound" muted loop autoplay>
+		  <source src="rooster.mp3" type="audio/mpeg">
+		</audio>
+		<audio id="ship-sound" muted loop autoplay>
+		  <source src="ship.mp3" type="audio/mpeg">
+		</audio>
 
 		<div class="jumbotron jumbotron-fluid" id="top">
 		  <div class="container">
 		    <h1 class="display-3">Stay Awake!</h1>
-		    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		    <p class="lead">This web app is designed to keep you awake when you have to! Using motion detection technology, you will be alerted if you start dozing off for an extended period of time while using your computer.</p>
 		  </div>
-			<div class="col-md-12 text-center">
-				<button id="start" class="btn-primary-outline" onclick="start()"><b>Start!</b></button>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-6" style="padding-left:300px;">
+				<h4>1. Select how much time you'd want to spend motionless before the alarm rings.</h4>
+				<h4>3. Select an alarm to play
+				<h4>2. Click 'Start' and work on!</h4>
+			</div>
+			<div class="col-xs-6" style="padding-top:12px;">
+				<div class="btn-group">
+				  <button type="button" id="1min" class="btn btn-primary">1 min</button>
+				  <button type="button" id="2min" class="btn btn-primary">2 min</button>
+				  <button type="button" id="5min" class="btn btn-primary">5 min</button>
+					<button type="button" id="10min" class="btn btn-primary">10 min</button>
+					<button type="button" id="15min" class="btn btn-primary">15 min</button>
+					<button type="button" id="30min" class="btn btn-primary">30 min</button>
+				</div>
+			</div>
+			<div class="col-xs-6 pull-right" style="padding-top:20px;">
+				<div>
+					<button id="start" class="btn-primary-outline" onclick="start()"><b>Start!</b></button>
+				</div>
 			</div>
 		</div>
+
 
 		<div id="stream" class="container">
 			<div class="col-md-12 text-center">
@@ -32,20 +62,7 @@
 			</div>
 		</div>
 
-		<div class="row">
 
-
-		</div>
-		<div class="text-center">
-			<div class="btn-group">
-			  <button type="button" id="1min" class="btn btn-primary">1 min</button>
-			  <button type="button" id="2min" class="btn btn-primary">2 min</button>
-			  <button type="button" id="5min" class="btn btn-primary">5 min</button>
-				<button type="button" id="10min" class="btn btn-primary">10 min</button>
-				<button type="button" id="15min" class="btn btn-primary">15 min</button>
-				<button type="button" id="30min" class="btn btn-primary">30 min</button>
-			</div>
-		</div>
 		<div id="slider-div" class="text-center">
 			<input type="range" id="slider" min="50" max="150" value="50" step="10" onchange="changeSensitivity(this.value)" />
 			<p id="sensitivity">50</p>
