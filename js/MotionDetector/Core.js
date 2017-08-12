@@ -6,13 +6,13 @@
  * @author         Benjamin Horn
  * @package        MotionDetector
  * @version        -
- * 
+ *
  */
 
 ;(function(App) {
 
 	"use strict";
-	
+
 	/*
 	 * The core motion detector. Does all the work.
 	 *
@@ -34,6 +34,11 @@
 
 		var topLeft = [Infinity,Infinity];
 		var bottomRight = [0,0];
+
+		var prev;
+		var cur;
+
+		var noMovementCount = 0;
 
 		var raf = (function(){
 			return  window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame ||
@@ -79,12 +84,28 @@
 
 			bottomRight[0] = vals.bottomRight[0] * 10;
 			bottomRight[1] = vals.bottomRight[1] * 10;
+			//
+			// document.getElementById('movement').style.top = topLeft[1] + 'px';
+			// document.getElementById('movement').style.left = topLeft[0] + 'px';
+			//
+			// document.getElementById('movement').style.width = (bottomRight[0] - topLeft[0]) + 'px';
+			// document.getElementById('movement').style.height = (bottomRight[1] - topLeft[1]) + 'px';
 
-			document.getElementById('movement').style.top = topLeft[1] + 'px';
-			document.getElementById('movement').style.left = topLeft[0] + 'px';
 
-			document.getElementById('movement').style.width = (bottomRight[0] - topLeft[0]) + 'px';
-			document.getElementById('movement').style.height = (bottomRight[1] - topLeft[1]) + 'px';
+			cur = (bottomRight[0] - topLeft[0]) * (bottomRight[1] - topLeft[1]);
+			if (cur !== prev) {
+				console.log("He's awake")
+				noMovementCount = 0;
+			} else {
+				console.log("Asleep")
+				noMovementCount++;
+			}
+
+			if (noMovementCount === 10) {
+				console.log("Wake up!");
+			}
+
+			prev = cur;
 
 			topLeft = [Infinity,Infinity];
 			bottomRight = [0,0]
@@ -97,6 +118,7 @@
 		 * @return void.
 		 *
 		 */
+
 		function main() {
 			try{
 				render();
