@@ -9,6 +9,7 @@
  *
  */
 
+
 ;(function(App) {
 
 	"use strict";
@@ -93,7 +94,6 @@
 			canvas.width = width;
 			canvas.height = height;
 			canvas.getContext('2d').drawImage(webCamWindow, 0, 0, width, height);
-
 			var pngImage = canvas.toDataURL("image/png");
 
 			if(append) {
@@ -130,6 +130,7 @@
 
 		// Initialize on creation.
 		initialize(videoElement);
+
 
 		// Return public interface.
 		return {

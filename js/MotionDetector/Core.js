@@ -9,6 +9,9 @@
  *
  */
 
+ var start;
+ var started;
+
 ;(function(App) {
 
 	"use strict";
@@ -132,6 +135,13 @@
 			}
 		}
 
-		initialize();
+		start = function() {
+
+			$("#webCamWindow").slideDown(1000);
+			// document.getElementById("stream").style.visibility = "visible";
+			// document.getElementById("stream").style.display = "inline";
+			initialize();
+		}
+
 	};
 })(MotionDetector);

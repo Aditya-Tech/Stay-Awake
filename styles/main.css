@@ -1,11 +1,34 @@
 #webCamWindow {
 	border: 1px solid #000;
-	width: 640px;
-	height:  480px;
+	width: 128px;
+	height:  96px;
 	/*position: absolute;*/
 	top: 0;
 	opacity: 1;
 	left: 0;
+	display:none;
+}
+/*
+#stream {
+	display: none;
+	visibility: hidden;
+}*/
+
+.btn-primary-outline {
+  background-color: transparent;
+  border: thick solid black;
+	width:100px;
+	height:40px;
+}
+
+.btn-primary-outline:hover, .btn-primary-outline:focus, .btn-primary-outline:active, .btn-primary-outline.active, .open > .dropdown-toggle.btn-primary {
+	color: #33a6cc;
+	border-color: #33a6cc;
+}
+.btn-primary-outline:active, .btn-primary-outline.active {
+	border-color: #007299;
+	color: #007299;
+	box-shadow: none;
 }
 
 #canvas {
@@ -15,7 +38,6 @@
 	left: 0;
 	width: 640px;
 	height:  480px;
-
 }
 
 #movement {
@@ -24,6 +46,7 @@
 	left: 0;
 	border: 1px solid red;
 	background: rgba(255,0,0,0.3);
+	display:none;
 
 }
 
@@ -46,7 +69,7 @@ body {
 }
 
 #slider-div {
-	
+
 }
 
 @-webkit-keyframes AnimationName {
