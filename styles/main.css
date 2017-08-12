@@ -2,19 +2,20 @@
 	border: 1px solid #000;
 	width: 640px;
 	height:  480px;
-	position: absolute;
+	/*position: absolute;*/
 	top: 0;
 	opacity: 1;
-	left: 0;	
+	left: 0;
 }
 
 #canvas {
-	position: absolute;
+	/*position: absolute;*/
 	opacity: 1;
 	top: 0;
 	left: 0;
 	width: 640px;
 	height:  480px;
+
 }
 
 #movement {
@@ -23,4 +24,43 @@
 	left: 0;
 	border: 1px solid red;
 	background: rgba(255,0,0,0.3);
+
+}
+
+
+body {
+	background: linear-gradient(270deg, #0097ff, #ff4600, #1dc814);
+	background-size: 600% 600%;
+
+	-webkit-animation: AnimationName 10s ease infinite;
+	-moz-animation: AnimationName 10s ease infinite;
+	animation: AnimationName 10s ease infinite;
+}
+
+#top {
+	background:transparent;
+}
+
+#slider {
+	width:600px;
+}
+
+#slider-div {
+	
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
