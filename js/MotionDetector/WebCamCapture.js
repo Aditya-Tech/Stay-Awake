@@ -51,7 +51,7 @@
 				}
 
 			} else {
-				alert('No support found');
+				alert('No support found for webcam video :( Try using Google Chrome instead.');
 			}
 		}
 
